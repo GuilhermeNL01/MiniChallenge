@@ -87,21 +87,38 @@ struct ScreenView: View {
             Spacer(minLength: 0)
             HStack{
                 if currentPage == 1 {
-                    Color("TextColor").frame(height: 8 /  UIScreen.main.scale)
-                    Color.gray.frame(height: 8 /  UIScreen.main.scale)
-                    Color.gray.frame(height: 8 /  UIScreen.main.scale)
+                    Color("TextColor").frame(height: 20 /  UIScreen.main.scale)
+                        .cornerRadius(10)
+
+                    Color.gray.frame(height: 20 /  UIScreen.main.scale)
+                        .cornerRadius(10)
+
+                    Color.gray.frame(height: 20 /  UIScreen.main.scale)
+                        .cornerRadius(10)
+
                 }
                 
                 else if currentPage == 2 {
-                    Color.gray.frame(height: 8 /  UIScreen.main.scale)
-                    Color("TextColor").frame(height: 8 /  UIScreen.main.scale)
-                    Color.gray.frame(height: 8 /  UIScreen.main.scale)
+                    Color.gray.frame(height: 20 /  UIScreen.main.scale)
+                        .cornerRadius(10)
+
+                    Color("TextColor").frame(height: 20 /  UIScreen.main.scale)
+                        .cornerRadius(10)
+
+                    Color.gray.frame(height: 20 /  UIScreen.main.scale)
+                        .cornerRadius(10)
                 }
                 
                 else if currentPage == 3 {
-                    Color.gray.frame(height: 8 /  UIScreen.main.scale)
-                    Color.gray.frame(height: 8 /  UIScreen.main.scale)
-                    Color("TextColor").frame(height: 8 /  UIScreen.main.scale)
+                    Color.gray.frame(height: 20 /  UIScreen.main.scale)
+                        .cornerRadius(10)
+
+                    Color.gray.frame(height: 20 /  UIScreen.main.scale)
+                        .cornerRadius(10)
+
+                    Color("TextColor").frame(height: 20 /  UIScreen.main.scale)
+                        .cornerRadius(10)
+
                 }
                 
                 
@@ -109,6 +126,7 @@ struct ScreenView: View {
 
             }
             .padding(.horizontal, 35)
+            Spacer()
             Button(action: {
                 if currentPage <= totalPages{
                     currentPage += 1

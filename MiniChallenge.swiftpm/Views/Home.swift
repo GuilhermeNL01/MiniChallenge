@@ -21,7 +21,7 @@ struct Home: View {
             VStack {
                 HStack{
                     Button(action: {
-                        currentPage -= 1
+                        currentPage -= 3
                     }, label: {
                         Image(systemName: "questionmark")
                             .font(.largeTitle)

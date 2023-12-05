@@ -8,13 +8,13 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "MiniChallenge",
+    name: "Chords",
     platforms: [
         .iOS("16.0")
     ],
     products: [
         .iOSApplication(
-            name: "MiniChallenge",
+            name: "Chords",
             targets: ["AppModule"],
             bundleIdentifier: "com.GuilhermeNunesLobo.MiniChallenge",
             teamIdentifier: "M9H5R689TD",

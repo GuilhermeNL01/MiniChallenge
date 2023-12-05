@@ -32,6 +32,7 @@ struct Home: View {
                             .background(Color("ButtonColor"))
                             .cornerRadius(10)
                             .padding()
+                            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
                         
                     })
                     
@@ -50,11 +51,13 @@ struct Home: View {
                 Text(title)
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                    .kerning(1.2)
+                    .padding(.horizontal)
+                    .kerning(1.0)
                     .padding(.top)
                     .padding(.bottom, 5)
                     .multilineTextAlignment(.center)
                     .foregroundColor(.white)
+                    .padding(.horizontal)
                 Spacer()
                 Button(action: {
                     
@@ -73,6 +76,8 @@ struct Home: View {
                             .background(Color("ButtonColor"))
                             .cornerRadius(40)
                             .padding()
+                            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+
                     }else{
                         Text("Next")
                             .fontWeight(.semibold)
@@ -84,6 +89,8 @@ struct Home: View {
                             .cornerRadius(40)
                             .padding()
                             .shadow(radius: 10)
+                            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+
                     }
                     
                 })

@@ -35,6 +35,8 @@ struct ScreenView: View {
                             .padding(.horizontal)
                             .background(Color("ButtonColor"))
                             .cornerRadius(10)
+                            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+
                     })
                 }
               
@@ -53,6 +55,8 @@ struct ScreenView: View {
                         .background(Color("ButtonColor"))
                         .cornerRadius(40)
                         .padding()
+                        .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+
                         
                 })
             }.padding()
@@ -63,6 +67,8 @@ struct ScreenView: View {
                 .aspectRatio(contentMode: .fit)
                 .padding(.horizontal,16)
                 .frame(height: 400)
+                .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+
             
             
             Spacer(minLength: 80)
@@ -150,6 +156,8 @@ struct ScreenView: View {
                         .background(Color("ButtonColor"))
                         .cornerRadius(40)
                         .padding()
+                        .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+
                 }else{
                     Text("Next")
                         .fontWeight(.semibold)
@@ -160,6 +168,8 @@ struct ScreenView: View {
                         .background(Color("ButtonColor"))
                         .cornerRadius(40)
                         .padding()
+                        .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+
                 }
                
             })

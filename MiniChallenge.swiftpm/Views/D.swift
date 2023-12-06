@@ -21,20 +21,7 @@ struct D: View {
                     VStack {
                         ZStack{
                             HStack{
-                                Button(action: {
-                                    
-                                }, label: {
-                                    Image(systemName: "chevron.left")
-                                        .font(.largeTitle)
-                                        .foregroundColor(Color("TextColor"))
-                                        .padding(.vertical,10)
-                                        .frame(width: 50,height: 50)
-                                        .padding(.horizontal)
-                                        .background(Color("ButtonColor"))
-                                        .cornerRadius(10)
-                                        .padding()
-                                        .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
-                                })
+                           
                                 Spacer()
                             }
                             HStack{

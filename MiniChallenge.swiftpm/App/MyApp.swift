@@ -4,8 +4,8 @@ import SwiftUI
 struct MyApp: App {
     var body: some Scene {
         WindowGroup {
-            MusicChordView()
-                .preferredColorScheme(.light)
+            Am()
+            .preferredColorScheme(.light)
 
         }
     }

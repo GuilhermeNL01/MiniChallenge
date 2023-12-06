@@ -67,7 +67,7 @@ struct Home: View {
                     
                     
                     if currentPage ==  3{
-                        Text("Next")
+                        Text("Go")
                             .fontWeight(.semibold)
                             .font(.system(size: 50))
                             .frame(width: 220, height: 40)
@@ -76,10 +76,10 @@ struct Home: View {
                             .background(Color("ButtonColor"))
                             .cornerRadius(40)
                             .padding()
-                            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+                            .shadow(color: .white.opacity(0.25), radius: 2, x: 0, y: 4)
 
                     }else{
-                        Text("Next")
+                        Text("Go")
                             .fontWeight(.semibold)
                             .font(.system(size: 50))
                             .frame(width: 220, height: 40)
@@ -89,7 +89,7 @@ struct Home: View {
                             .cornerRadius(40)
                             .padding()
                             .shadow(radius: 10)
-                            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+                            .shadow(color: .white.opacity(0.25), radius: 2, x: 0, y: 4)
 
                     }
                     
@@ -98,9 +98,7 @@ struct Home: View {
         }
     }
 }
-#Preview {
-    GradientView()
-}
+
 
 
 

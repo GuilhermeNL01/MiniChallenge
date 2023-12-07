@@ -37,30 +37,7 @@ struct LastScreen: View {
                         .foregroundColor(.white)
                         .padding(.horizontal)
                     Spacer()
-                    Button(action: {
-                        
-                        
-                    }, label: {
-                        
-                        
-                        NavigationLink {
-                            MusicChordView()
-                        } label: {
-                            Text("Restart")
-                                .fontWeight(.semibold)
-                                .font(.system(size: 50))
-                                .frame(width: 220, height: 40)
-                                .padding()
-                                .foregroundColor(Color("TextColor"))
-                                .background(Color("ButtonColor"))
-                                .cornerRadius(40)
-                                .padding()
-                                .shadow(color: .white.opacity(0.25), radius: 2, x: 0, y: 4)
-                        }
-                        
-                        
-                        
-                    })
+                   
                 }
             }
         }

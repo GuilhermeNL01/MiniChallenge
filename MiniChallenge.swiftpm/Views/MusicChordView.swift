@@ -18,8 +18,11 @@ struct MusicChordView: View {
                     VStack {
                         RoundedRectangle(cornerRadius: 10)
                             .fill(Color("ButtonColor"))
+                            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
                             .padding(.all)
                             .overlay(ChordListView(viewModel: viewModel))
+                            .frame(width: 700, height: 600)
+                            
                         
                         HStack{
                             Spacer()

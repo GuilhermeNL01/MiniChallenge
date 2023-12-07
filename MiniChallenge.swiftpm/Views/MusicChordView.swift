@@ -11,7 +11,6 @@ struct MusicChordView: View {
     @StateObject private var viewModel = MusicChordViewModel()
     
     var body: some View {
-        NavigationStack{
             ZStack(alignment: .center) {
                 
                 Color("BackgroundColor")
@@ -24,26 +23,24 @@ struct MusicChordView: View {
                         
                         HStack{
                             Spacer()
-                            
-                            Button(action: {
-//Last Screen
-                            }, label: {
-                                
-                                
-                                
+                            NavigationLink(destination: LastScreen(image: "Guitar", title: "Thank you very much for experiencing my scene!")) {
                                 Text("End")
-                                    .fontWeight(.semibold)
-                                    .font(.system(size: 50))
-                                    .frame(width: 220, height: 40)
-                                    .padding()
-                                    .foregroundColor(Color("TextColor"))
-                                    .background(Color("ButtonColor"))
-                                    .cornerRadius(40)
-                                    .padding()
-                                    .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+                                .fontWeight(.semibold)
+                                .font(.system(size: 50))
+                                .frame(width: 220, height: 40)
+                                .padding()
+                                .foregroundColor(Color("TextColor"))
+                                .background(Color("ButtonColor"))
+                                .cornerRadius(40)
+                                .padding()
+                                .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+                                .padding(.trailing)
+                                .padding(.bottom)
+
                             }
-                                   
-                            )
+                                            
+
+                            
                         }
                     }
                     .edgesIgnoringSafeArea(.all)
@@ -51,7 +48,7 @@ struct MusicChordView: View {
             }
         }
     }
-}
+
 #Preview{
     MusicChordView()
 }

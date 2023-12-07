@@ -22,9 +22,6 @@ struct OnboardingScreen: View {
             } else if currentPage == 3 {
                 ScreenView(image: "Hand", title: "To play a chord, you need to know the finger directions.", details: "")
             }
-            else if currentPage == 5 {
-                ScreenView(image: "C", title: "Chord C", details: "This is the Chord C")
-            }
         }
     }
 }

@@ -20,8 +20,8 @@ struct Am: View {
                         VStack {
                             ZStack{
                                 HStack{
-                                  
-                                
+                                    
+                                    
                                     Spacer()
                                 }
                                 HStack{

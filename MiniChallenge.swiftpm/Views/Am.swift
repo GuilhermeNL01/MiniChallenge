@@ -1,30 +1,29 @@
 //
 //  SwiftUIView 2.swift
-//  
+//
 //
 //  Created by Guilherme Nunes Lobo on 06/12/23.
 //
 import SwiftUI
+import AVFoundation
 
 struct Am: View {
     @State private var isFilled = false
-    
+    @State private var audioPlayer: AVAudioPlayer?
+
     var body: some View {
-        NavigationStack{
-            GeometryReader{ proxy in
-                ZStack{
+        NavigationStack {
+            GeometryReader { proxy in
+                ZStack {
                     Color("BackgroundColor")
                         .ignoresSafeArea()
-                    HStack{
-                        
+                    HStack {
                         VStack {
-                            ZStack{
-                                HStack{
-                                    
-                                    
+                            ZStack {
+                                HStack {
                                     Spacer()
                                 }
-                                HStack{
+                                HStack {
                                     Spacer()
                                     Text("Am")
                                         .font(.largeTitle)
@@ -35,21 +34,18 @@ struct Am: View {
                                     Spacer()
                                 }
                             }
-                            HStack{
-                                
-                                
+                            HStack {
                                 Spacer()
-                                
                             }
                             Spacer()
-                            
+
                             Image("Am")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .padding(.horizontal,16)
+                                .padding(.horizontal, 16)
                                 .frame(height: 400)
                             Spacer()
-                            
+
                             Text("This is the Chord Am")
                                 .font(.largeTitle)
                                 .foregroundStyle(Color.black)
@@ -60,12 +56,13 @@ struct Am: View {
                                 .padding(.bottom, 5)
                                 .multilineTextAlignment(.center)
                                 .padding(.horizontal)
-                            
+
                             Spacer()
                             Button(action: {
                                 self.isFilled.toggle()
+                                self.toggleAudio()
                             }, label: {
-                                Image(systemName: isFilled ? "speaker.fill" : "speaker")
+                                Image(systemName: isFilled ? "pause.fill" : "play.fill")
                                     .fontWeight(.semibold)
                                     .font(.system(size: 50))
                                     .frame(width: 220, height: 40)
@@ -77,20 +74,38 @@ struct Am: View {
                                     .shadow(color: .white.opacity(0.25), radius: 2, x: 0, y: 4)
                             })
                         }
-                        
                     }
                 }
-                
+            }
+        }
+    }
+
+    func toggleAudio() {
+        if isFilled {
+            // Pause the audio
+            print("audio paused")
+
+            audioPlayer?.pause()
+        } else {
+            // Play the audio
+            print("audio played")
+            guard let audioURL = Bundle.main.url(forResource: "Am", withExtension: "m4a") else {
+                return
+            }
+
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: audioURL)
+                audioPlayer?.play()
+            } catch {
+                print("Error playing audio: \(error.localizedDescription)")
             }
         }
     }
 }
 
 #Preview {
-    NavigationStack{
+    NavigationStack {
         Am()
     }
 }
-
-
 

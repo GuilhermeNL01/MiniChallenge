@@ -9,14 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     @AppStorage("currentPage") var currentPage = 1
-
+    
     var body: some View {
-
+        
         if currentPage > totalPages {
             Home( image: "Guitar2", title: "Start your Journey on Guitar Chords Now!")
+                .onAppear {
+                    requestMicrophonePermission()
+                }
         }
         else{
             OnboardingScreen()
+                .onAppear {
+                    requestMicrophonePermission()
+                }
         }
         
     }

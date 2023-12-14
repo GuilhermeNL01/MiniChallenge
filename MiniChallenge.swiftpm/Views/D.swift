@@ -83,26 +83,26 @@ struct D: View {
 
     func toggleAudio() {
         print("Toggling audio. isFilled: \(isFilled)")
+        print("Playing audio")
 
-        if isFilled {
-            // Pause the audio
-            print("Pausing audio")
+        guard let audioURL = Bundle.main.url(forResource: "Sounds/Am", withExtension: "mp3") else {
+            print("Audio file not found")
+            return
+        }
+
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: audioURL)
             audioPlayer?.play()
+        } catch {
+            print(error.localizedDescription)
+        }
+        if isFilled {
+            print("Pausing audio")
+            audioPlayer?.pause()
         } else {
-            // Play the audio
-            print("Playing audio")
-
-            guard let audioURL = Bundle.main.url(forResource: "Am", withExtension: "mp3") else {
-                print("Audio file not found")
-                return
-            }
-
-            do {
-                audioPlayer = try AVAudioPlayer(contentsOf: audioURL)
-                audioPlayer?.play()
-            } catch {
-                print("Error playing audio: \(error.localizedDescription)")
-            }
+            
+            print("Pausing audio")
+            audioPlayer?.pause()
         }
     }
 

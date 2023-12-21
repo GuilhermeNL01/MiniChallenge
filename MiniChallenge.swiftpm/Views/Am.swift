@@ -1,16 +1,17 @@
 //
-//  SwiftUIView 2.swift
+//  Am.swift
 //
 //
 //  Created by Guilherme Nunes Lobo on 06/12/23.
 //
+
 import SwiftUI
 import AVFoundation
 
 struct Am: View {
-    @State private var isFilled = false
     @State private var audioPlayer: AVAudioPlayer?
-
+    @State private var isPlaying: Bool = false
+    
     var body: some View {
         NavigationStack {
             GeometryReader { proxy in
@@ -38,15 +39,15 @@ struct Am: View {
                                 Spacer()
                             }
                             Spacer()
-
+                            
                             Image("Am")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .padding(.horizontal, 16)
                                 .frame(height: 400)
                             Spacer()
-
-                            Text("This is the Chord Am")
+                            
+                            Text("Am, or A minor chord, comprises the notes A, C, and E. It has a softer and melancholic sound compared to major chords")
                                 .font(.largeTitle)
                                 .foregroundStyle(Color.black)
                                 .fontWeight(.bold)
@@ -56,13 +57,17 @@ struct Am: View {
                                 .padding(.bottom, 5)
                                 .multilineTextAlignment(.center)
                                 .padding(.horizontal)
-
+                            
                             Spacer()
                             Button(action: {
-                                self.isFilled.toggle()
-                                self.toggleAudio()
+                                self.isPlaying.toggle()
+                                if isPlaying {
+                                    self.playAudio()
+                                } else {
+                                    self.audioPlayer?.pause()
+                                }
                             }, label: {
-                                Image(systemName: isFilled ? "pause.fill" : "play.fill")
+                                Image(systemName: isPlaying ? "pause.fill" : "play.fill")
                                     .fontWeight(.semibold)
                                     .font(.system(size: 50))
                                     .frame(width: 220, height: 40)
@@ -79,26 +84,17 @@ struct Am: View {
             }
         }
     }
-
-    func toggleAudio() {
-        if isFilled {
-            // Pause the audio
-            print("audio paused")
-
-            audioPlayer?.pause()
-        } else {
-            // Play the audio
-            print("audio played")
-            guard let audioURL = Bundle.main.url(forResource: "Am", withExtension: "m4a") else {
-                return
-            }
-
-            do {
-                audioPlayer = try AVAudioPlayer(contentsOf: audioURL)
-                audioPlayer?.play()
-            } catch {
-                print("Error playing audio: \(error.localizedDescription)")
-            }
+    
+    func playAudio() {
+        guard let audioURL = Bundle.main.url(forResource: "Am", withExtension: ".mp3") else {
+            return
+        }
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: audioURL)
+            audioPlayer?.play()
+        } catch {
+            print("Error playing audio: \(error.localizedDescription)")
         }
     }
 }

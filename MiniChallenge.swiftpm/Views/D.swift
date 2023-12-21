@@ -1,6 +1,6 @@
 //
-//  SwiftUIView 3.swift
-//  
+//  D.swift
+//
 //
 //  Created by Guilherme Nunes Lobo on 06/12/23.
 //
@@ -9,9 +9,9 @@ import SwiftUI
 import AVFoundation
 
 struct D: View {
-    @State private var isFilled = false
     @State private var audioPlayer: AVAudioPlayer?
-
+    @State private var isPlaying: Bool = false
+    
     var body: some View {
         NavigationStack {
             GeometryReader { proxy in
@@ -39,15 +39,15 @@ struct D: View {
                                 Spacer()
                             }
                             Spacer()
-
+                            
                             Image("D")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .padding(.horizontal, 16)
                                 .frame(height: 400)
                             Spacer()
-
-                            Text("This is the Chord D")
+                            
+                            Text("D major chord consists of the notes D, F#, and A. It's widely used in various musical genres, offering a bright and cheerful sound.")
                                 .font(.largeTitle)
                                 .foregroundStyle(Color.black)
                                 .fontWeight(.bold)
@@ -57,13 +57,17 @@ struct D: View {
                                 .padding(.bottom, 5)
                                 .multilineTextAlignment(.center)
                                 .padding(.horizontal)
-
+                            
                             Spacer()
                             Button(action: {
-                                self.isFilled.toggle()
-                                self.toggleAudio()
+                                self.isPlaying.toggle()
+                                if isPlaying {
+                                    self.playAudio()
+                                } else {
+                                    self.audioPlayer?.pause()
+                                }
                             }, label: {
-                                Image(systemName: isFilled ? "pause.fill" : "play.fill")
+                                Image(systemName: isPlaying ? "pause.fill" : "play.fill")
                                     .fontWeight(.semibold)
                                     .font(.system(size: 50))
                                     .frame(width: 220, height: 40)
@@ -80,35 +84,24 @@ struct D: View {
             }
         }
     }
-
-    func toggleAudio() {
-        print("Toggling audio. isFilled: \(isFilled)")
-        print("Playing audio")
-
-        guard let audioURL = Bundle.main.url(forResource: "Sounds/Am", withExtension: "mp3") else {
-            print("Audio file not found")
+    
+    func playAudio() {
+        guard let audioURL = Bundle.main.url(forResource: "D", withExtension: ".mp3") else {
             return
         }
-
+        
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: audioURL)
             audioPlayer?.play()
         } catch {
-            print(error.localizedDescription)
-        }
-        if isFilled {
-            print("Pausing audio")
-            audioPlayer?.pause()
-        } else {
-            
-            print("Pausing audio")
-            audioPlayer?.pause()
+            print("Error playing audio: \(error.localizedDescription)")
         }
     }
-
 }
-
 
 #Preview {
-    D()
+    NavigationStack {
+        D()
+    }
 }
+

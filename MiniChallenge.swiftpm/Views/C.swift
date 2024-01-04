@@ -86,7 +86,7 @@ struct C: View {
     }
     
     func playAudio() {
-        guard let audioURL = Bundle.main.url(forResource: "C", withExtension: ".mp3") else {
+        guard let audioURL = Bundle.main.url(forResource: "C ", withExtension: ".mp3") else {
             return
         }
         

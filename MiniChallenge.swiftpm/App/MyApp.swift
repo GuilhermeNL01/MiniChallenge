@@ -5,8 +5,8 @@ struct MyApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-            .preferredColorScheme(.light)
-
+            // Setting the preferred color scheme to light for the ContentView
+                .preferredColorScheme(.light)
         }
     }
 }

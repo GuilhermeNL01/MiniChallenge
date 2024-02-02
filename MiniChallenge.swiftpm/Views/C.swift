@@ -1,6 +1,6 @@
 //
 //  C.swift
-//
+//  
 //
 //  Created by Guilherme Nunes Lobo on 06/12/23.
 //
@@ -8,24 +8,39 @@
 import SwiftUI
 import AVFoundation
 
+// MARK: - C View
+
+/// A SwiftUI view representing the C major chord details.
 struct C: View {
+    // MARK: - Properties
+    
+    // State variable for managing the audio player and play/pause state
     @State private var audioPlayer: AVAudioPlayer?
     @State private var isPlaying: Bool = false
     
+    // MARK: - Body
+    
     var body: some View {
+        // Navigation stack to enable navigation within the app
         NavigationStack {
+            // GeometryReader for responsive layout
             GeometryReader { proxy in
                 ZStack {
+                    // Background color covering the entire safe area
                     Color("BackgroundColor")
                         .ignoresSafeArea()
+                    
+                    // Main content stack
                     HStack {
                         VStack {
+                            // Chord title and image section
                             ZStack {
                                 HStack {
                                     Spacer()
                                 }
                                 HStack {
                                     Spacer()
+                                    // Chord title styling
                                     Text("C")
                                         .font(.largeTitle)
                                         .fontWeight(.semibold)
@@ -40,6 +55,7 @@ struct C: View {
                             }
                             Spacer()
                             
+                            // Image representing the C major chord
                             Image("C")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
@@ -47,6 +63,7 @@ struct C: View {
                                 .frame(height: 400)
                             Spacer()
                             
+                            // Chord description section
                             Text("C major chord includes the notes C, E, and G. It's a basic and fundamental chord, often used as a starting point for beginners.")
                                 .font(.largeTitle)
                                 .foregroundStyle(Color.black)
@@ -59,6 +76,8 @@ struct C: View {
                                 .padding(.horizontal)
                             
                             Spacer()
+                            
+                            // Play/pause button for audio
                             Button(action: {
                                 self.isPlaying.toggle()
                                 if isPlaying {
@@ -85,8 +104,11 @@ struct C: View {
         }
     }
     
+    // MARK: - Audio Playback
+    
+    /// Plays the audio associated with the C major chord.
     func playAudio() {
-        guard let audioURL = Bundle.main.url(forResource: "C ", withExtension: ".mp3") else {
+        guard let audioURL = Bundle.main.url(forResource: "C", withExtension: ".mp3") else {
             return
         }
         
@@ -96,12 +118,6 @@ struct C: View {
         } catch {
             print("Error playing audio: \(error.localizedDescription)")
         }
-    }
-}
-
-#Preview {
-    NavigationStack {
-        C()
     }
 }
 

@@ -1,6 +1,6 @@
 //
 //  G.swift
-//
+//  
 //
 //  Created by Guilherme Nunes Lobo on 06/12/23.
 //
@@ -8,24 +8,39 @@
 import SwiftUI
 import AVFoundation
 
+// MARK: - G View
+
+/// A SwiftUI view representing the G major chord details.
 struct G: View {
+    // MARK: - Properties
+    
+    // State variable for managing the audio player and play/pause state
     @State private var audioPlayer: AVAudioPlayer?
     @State private var isPlaying: Bool = false
     
+    // MARK: - Body
+    
     var body: some View {
+        // Navigation stack to enable navigation within the app
         NavigationStack {
+            // GeometryReader for responsive layout
             GeometryReader { proxy in
                 ZStack {
+                    // Background color covering the entire safe area
                     Color("BackgroundColor")
                         .ignoresSafeArea()
+                    
+                    // Main content stack
                     HStack {
                         VStack {
+                            // Chord title and image section
                             ZStack {
                                 HStack {
                                     Spacer()
                                 }
                                 HStack {
                                     Spacer()
+                                    // Chord title styling
                                     Text("G")
                                         .font(.largeTitle)
                                         .fontWeight(.semibold)
@@ -40,6 +55,7 @@ struct G: View {
                             }
                             Spacer()
                             
+                            // Image representing the G major chord
                             Image("G")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
@@ -47,6 +63,7 @@ struct G: View {
                                 .frame(height: 400)
                             Spacer()
                             
+                            // Chord description section
                             Text("G major chord is formed by the notes G, B, and D. It's an open and robust chord, commonly used in pop, rock, and folk music.")
                                 .font(.largeTitle)
                                 .foregroundStyle(Color.black)
@@ -59,6 +76,8 @@ struct G: View {
                                 .padding(.horizontal)
                             
                             Spacer()
+                            
+                            // Play/pause button for audio
                             Button(action: {
                                 self.isPlaying.toggle()
                                 if isPlaying {
@@ -85,6 +104,9 @@ struct G: View {
         }
     }
     
+    // MARK: - Audio Playback
+    
+    /// Plays the audio associated with the G major chord.
     func playAudio() {
         guard let audioURL = Bundle.main.url(forResource: "G", withExtension: ".mp3") else {
             return
@@ -99,9 +121,4 @@ struct G: View {
     }
 }
 
-#Preview {
-    NavigationStack {
-        G()
-    }
-}
 

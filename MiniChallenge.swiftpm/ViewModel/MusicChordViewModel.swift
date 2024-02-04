@@ -25,7 +25,7 @@ class MusicChordViewModel: ObservableObject {
     init() {
         // Sample lyrics describing the importance of chords
         let lyrics = """
-            So here's to chords, a songwriter's delight,
+            So here are the chords, a songwriter's delight,
             In the language of music, shining bright.
             Whether major or minor, they play their part,
             A symphony of sounds, a work of art.

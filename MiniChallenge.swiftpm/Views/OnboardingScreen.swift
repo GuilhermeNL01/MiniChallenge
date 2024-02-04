@@ -29,10 +29,10 @@ struct OnboardingScreen: View {
                 ScreenView(image: "Guitar", title: "This scene has the purpose of showing some chords that are essential in the life of a guitarist.", details: "")
             } else if currentPage == 2 {
                 // Displaying the second screen with image, title, and details
-                ScreenView(image: "Chordsmini", title: "This is an example of a chord, and it serves to guide the musician on how to play the song. When you click on a chord, you will see its specifications.", details: "")
+                ScreenView(image: "Chordsmini", title: "This is an example of a chord, and it serves to guide the musician on how to play the song. When you click on a chord, you will see the details.", details: "")
             } else if currentPage == 3 {
                 // Displaying the third screen with image, title, and details
-                ScreenView(image: "Hand", title: "To play a chord, you need to know the finger directions.", details: "")
+                ScreenView(image: "Hand", title: "To play a chord, you need to know the fingers directions.", details: "")
             }
         }
     }

@@ -49,21 +49,21 @@ struct ScreenView: View {
                 Spacer()
                 
                 // Button to skip to the last page
-                Button(action: {
-                    currentPage = 4
-                }, label: {
-                    Text("Skip")
-                        .fontWeight(.semibold)
-                        .kerning(1.2)
-                        .font(.system(size: 30))
-                        .frame(width: 100, height: 30)
-                        .padding()
-                        .foregroundColor(Color("TextColor"))
-                        .background(Color("ButtonColor"))
-                        .cornerRadius(40)
-                        .padding()
-                        .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
-                })
+//                Button(action: {
+//                    currentPage = 4
+//                }, label: {
+//                    Text("Skip")
+//                        .fontWeight(.semibold)
+//                        .kerning(1.2)
+//                        .font(.system(size: 30))
+//                        .frame(width: 100, height: 30)
+//                        .padding()
+//                        .foregroundColor(Color("TextColor"))
+//                        .background(Color("ButtonColor"))
+//                        .cornerRadius(40)
+//                        .padding()
+//                        .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+//                })
             }
             .padding()
             .foregroundColor(.black)
@@ -86,6 +86,7 @@ struct ScreenView: View {
                 .fontWeight(.bold)
                 .kerning(1.2)
                 .padding(.top)
+                .padding(.horizontal)
                 .padding(.bottom, 5)
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color("TextColor"))

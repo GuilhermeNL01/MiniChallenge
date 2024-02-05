@@ -13,7 +13,8 @@ import SwiftUI
 struct MusicChordView: View {
     // Observable object to hold the view model for music chords
     @StateObject private var viewModel = MusicChordViewModel()
-    
+    @State private var isTextVisible = true
+
     // MARK: - Body
     
     var body: some View {
@@ -21,11 +22,26 @@ struct MusicChordView: View {
         ZStack(alignment: .center) {
             // Background color
             Color("BackgroundColor")
-            
             // HStack for horizontal arrangement
             HStack {
                 // VStack for vertical arrangement
                 VStack {
+                    Text("Try to Explore the Chords!")
+                        .fontWeight(.semibold)
+                        .font(.system(size: 40))
+                        .padding()
+                        .foregroundColor(Color("TextColor"))
+                        .opacity(isTextVisible ? 1.0 : 0.0)
+                        .onAppear {
+                            withAnimation(Animation.easeInOut(duration: 1).repeatCount(7)) {
+                                self.isTextVisible.toggle()
+                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                withAnimation {
+                                    self.isTextVisible = false
+                                }
+                            }
+                        }
                     // RoundedRectangle to encapsulate chord list view
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color("ButtonColor"))

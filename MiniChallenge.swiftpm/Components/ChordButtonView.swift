@@ -26,7 +26,7 @@ struct ChordButtonView: View {
                 .font(.title) // Adjusting the font size
                 .fontWeight(.bold) // Making the text bold
                 .padding(8) // Adding padding to the text
-                .background(RoundedRectangle(cornerRadius: 5).stroke(Color.black, lineWidth: 2)) // Adding a border to the text
+                .background(RoundedRectangle(cornerRadius: 5).fill(.clear))//.stroke(Color.black, lineWidth: 2)Color.gray) // Adding a border to the text
         }
     }
     
@@ -47,4 +47,8 @@ struct ChordButtonView: View {
             return AnyView(EmptyView())  // Default case for unknown chords
         }
     }
+}
+
+#Preview{
+    ChordButtonView(chord: "C", viewModel: MusicChordViewModel())
 }
